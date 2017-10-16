@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>rewardrings-edataloaders-root</artifactId>
+		<groupId>com.rewardrings.mgt.edataloaders</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>com.rewardrings.mgt.edataloaders.web</groupId>
+	<artifactId>rewardrings-edataloaders-web</artifactId>
+	<packaging>pom</packaging>
+	<name>rewardrings-edataloaders-web</name>
+	<modules>
+		<module>rewardrings-edataloaders-web-rest</module>
+		<module>rewardrings-edataloaders-web-mvc</module>
+	</modules>
+</project>
