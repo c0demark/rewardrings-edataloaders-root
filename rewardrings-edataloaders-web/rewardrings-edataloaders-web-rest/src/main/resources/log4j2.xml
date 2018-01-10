@@ -2,7 +2,7 @@
 <!-- <Configuration name="ims" status="WARN" strict="true" monitorInterval="30"> -->
 <Configuration name="ims" status="WARN" strict="true">
 	<Properties>
-		<Property name="APP_LOG_BASE_DIRECTORY" value="ims/logs" />
+		<Property name="APP_LOG_BASE_DIRECTORY" value="ims${sys:file.separator}logs" />
 		<Property name="ROLLING_LOG_FILE_NAME" value="ims" />
 		<Property name="CONSOLE_LOG_PATTERN"
 			value="%date{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%5level} %style{%5processId}{normal, blue} --- [%15thread] %style{%logger{1.}}{normal, cyan} : %message%n%throwable%n" />
@@ -18,8 +18,8 @@
 			<Layout type="PatternLayout" pattern="${CONSOLE_LOG_PATTERN}" />
 		</Appender>
 		<Appender type="RollingFile" name="RollingFile"
-			fileName="${APP_LOG_BASE_DIRECTORY}/${ROLLING_LOG_FILE_NAME}.log"
-			filePattern="${APP_LOG_BASE_DIRECTORY}/$${date:yyyy}/$${date:MMM}/${ROLLING_LOG_FILE_NAME}_%d{yyyy-MM-dd}_%i.log">
+			fileName="${APP_LOG_BASE_DIRECTORY}${sys:file.separator}${ROLLING_LOG_FILE_NAME}.log"
+			filePattern="${APP_LOG_BASE_DIRECTORY}${sys:file.separator}$${date:yyyy}${sys:file.separator}$${date:MMM}${sys:file.separator}${ROLLING_LOG_FILE_NAME}_%d{yyyy-MM-dd}_%i.log">
 			<Layout type="PatternLayout" pattern="${FILE_LOG_PATTERN}" />
 			<Policies>
 				<!-- <TimeBasedTriggeringPolicy /> -->
@@ -30,7 +30,7 @@
 			<Strategy type="DefaultRolloverStrategy" fileIndex="nomax">
 				<Delete basePath="${APP_LOG_BASE_DIRECTORY}" maxDepth="5"
 					testMode="false">
-					<IfFileName glob="**/${ROLLING_LOG_FILE_NAME}_*.log">
+					<IfFileName glob="**${sys:file.separator}${ROLLING_LOG_FILE_NAME}_*.log">
 						<IfLastModified age="1m">
 							<IfAny>
 								<IfAccumulatedFileSize exceeds="3 KB" />

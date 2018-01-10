@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Vijay Kumar
  *
  */
-@RestController(value = "FlipkartController")
-@RequestMapping(path = {"/flipkart/products"})
-public class FlipkartController {
+@RestController(value = "ProductCategoryController")
+@RequestMapping(path = {"/"})
+public class ProductCategoryController {
 
 	@RequestMapping(path = {"/"})
 	public String welcome() {
